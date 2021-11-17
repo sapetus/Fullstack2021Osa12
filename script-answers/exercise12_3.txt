@@ -1,0 +1,11 @@
+Script started on 2021-11-17 12:35:29+02:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="156" LINES="63"]
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+^[]0;sampo@DESKTOP-NEC7D6M: ~^G^[[01;32msampo@DESKTOP-NEC7D6M^[[00m:^[[01;34m~^[[00m$ docker start -i clever-^H^[[K_jgo^H^[[K^H^[[Kohnson
+^[]0;root@4ef795b550c0: /^Groot@4ef795b550c0:/# ^M^[[K^[]0;root@4ef795b550c0: /^Groot@4ef795b550c0:/# nano /usr/sc^H ^Hrc/ap/^H ^H^H ^Hpp/index.js
+^[[?2004h^[[?1049h^[[22;0;0t^[[1;63r^[(B^[[m^[[4l^[[?7h^[[39;49m^[[?1h^[=^[[?1h^[=^[[?25l^[[39;49m^[(B^[[m^[[H^[[2J^[[61;72H^[(B^[[0;7m[ Reading... ]^[(B^[[m^[[61;71H^[(B^[[0;7m[ Read 0 lines ]^>exit
+^[]0;sampo@DESKTOP-NEC7D6M: ~^G^[[01;32msampo@DESKTOP-NEC7D6M^[[00m:^[[01;34m~^[[00m$ exit
+exit
+
+Script done on 2021-11-17 12:36:55+02:00 [COMMAND_EXIT_CODE="0"]
