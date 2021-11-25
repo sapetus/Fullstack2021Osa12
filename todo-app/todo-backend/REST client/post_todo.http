@@ -2,5 +2,5 @@ POST http://localhost:3000/todos
 content-type: application/json
 
 {
-  "text": "Make a snowman"
+  "text": "Clean the garage"
 }
