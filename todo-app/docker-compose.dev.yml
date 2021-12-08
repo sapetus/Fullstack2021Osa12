@@ -1,6 +1,21 @@
-version: '3.8'
-
 services:
+    nginx:
+        image: nginx:1.20.1
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        ports:
+            - 8080:80
+        container_name: reverse_proxy
+    app:
+        image: todo-frontend-dev
+        build:
+            context: ./todo-frontend
+            dockerfile: dev.Dockerfile
+        volumes:
+            - ./todo-frontend:/usr/src/app
+        ports:
+            - 3005:3005
+        container_name: todo-frontend-dev
     mongo:
         image: mongo
         ports:
@@ -10,7 +25,7 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: example
             MONGO_INITDB_DATABASE: the_database
         volumes:
-            - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+            - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
             - mongo_data:/data/db
     redis:
         image: redis
@@ -18,19 +33,20 @@ services:
             - 6379:6379
         command: ['redis-server', '--appendonly', 'yes']
         volumes:
-            - ./redis_data:/data
+            - ./todo-backend/redis-data:/data
     server:
         image: todo-backend-dev
         build:
-            context: .
+            context: ./todo-backend
             dockerfile: dev.Dockerfile
         volumes:
-            - ./:/usr/src/app
+            - ./todo-backend:/usr/src/app
         ports:
             - 3000:3000
         environment:
             - REDIS_PORT=6379
             - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+            - CHOKIDAR_USEPOLLING=true
         depends_on:
             - redis
             - mongo

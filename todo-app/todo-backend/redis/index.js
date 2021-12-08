@@ -14,11 +14,12 @@ if (!REDIS_PORT) {
   setAsync = redisIsDisabled
 } else {
   const client = redis.createClient({
+    host: 'redis',
     port: REDIS_PORT
   })
-    
+
   getAsync = promisify(client.get).bind(client)
-  setAsync = promisify(client.set).bind(client)    
+  setAsync = promisify(client.set).bind(client)
 }
 
 module.exports = {
